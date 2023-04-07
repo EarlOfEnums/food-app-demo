@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Text, StyleSheet, View, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import RestaurantList from "../components/RestaurantList";
 import useBusinesses from "../hooks/useBusinesses";
 
 const SearchScreen = () => {
-  const [searchTerm, setSearchTerm] = React.usteState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchApi, businesses, errorMessage] = useBusinesses();
 
   const filterResultsByPrice = (price) => {
