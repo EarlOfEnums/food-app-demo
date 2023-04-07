@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import yelp from "../api/yelp";
 
 const RestaurantScreen = ({ navigation }) => {
   const [restaurant, setRestaurant] = useState(null);
@@ -10,7 +11,7 @@ const RestaurantScreen = ({ navigation }) => {
     setRestaurant(response.data);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     getBusiness(id);
   }, []);
 
@@ -24,7 +25,7 @@ const RestaurantScreen = ({ navigation }) => {
       <FlatList
         data={restaurant.photos}
         keyExtractor={(photo) => photo}
-        renderItem={(item) => {
+        renderItem={({ item }) => {
           return <Image style={styles.image} source={{ uri: item }} />;
         }}
       />
@@ -39,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default restaurantScreen;
+export default RestaurantScreen;

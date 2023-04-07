@@ -21,13 +21,13 @@ const RestaurantList = ({ title, restaurants, navigation }) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={restaurants}
-        keyExtractor={(restaurants = restaurants.id)}
+        keyExtractor={(restaurant) => restaurant.id}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
               onPress={() => navigation.navigate("Restaurant", { id: item.id })}
             >
-              <RestaurantDetail item={item} />;
+              <RestaurantDetail restaurant={item} />
             </TouchableOpacity>
           );
         }}

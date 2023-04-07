@@ -5,7 +5,7 @@ import RestaurantList from "../components/RestaurantList";
 import useBusinesses from "../hooks/useBusinesses";
 
 const SearchScreen = () => {
-  const [searchTerm, setSearchTerm] = React.usteState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchApi, businesses, errorMessage] = useBusinesses();
 
   const filterResultsByPrice = (price) => {
